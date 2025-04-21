@@ -1,23 +1,21 @@
 function segmented_all = segment_all_classes(img_path)
 
-    % --- 1. Cargar umbrales y pesos por clase
+ 
     load('thresholds_all_classes.mat', 'umbral_all', 'canales_all', 'pesos_all');
 
-    % --- 2. Leer imagen original
+    
     img = im2double(imread(img_path));
-    if size(img,3) ~= 3
-        error('La imagen debe ser RGB.');
-    end
+ 
 
     [H, W, ~] = size(img);
 
-    % --- 3. Convertir a espacios de color
+  
     hsv    = rgb2hsv(img);
     lab    = rgb2lab(img);
     ycbcr  = rgb2ycbcr(img);
 
 
-    % --- 4. Construir estructura de canales
+  
     channels_data.R  = img(:,:,1);
     channels_data.G  = img(:,:,2);
     channels_data.B  = img(:,:,3);
@@ -31,7 +29,7 @@ function segmented_all = segment_all_classes(img_path)
     channels_data.Cb = ycbcr(:,:,2);
     channels_data.Cr = ycbcr(:,:,3);
 
-    % --- 5. Máscara para eliminar fondo blanco (afinada)
+    
     hsv_blur = imgaussfilt(hsv(:,:,3), 0.7);
     white_mask = (hsv_blur > 0.82 & hsv(:,:,2) < 0.23);
     white_mask = imopen(white_mask, strel('disk', 1));
@@ -39,10 +37,10 @@ function segmented_all = segment_all_classes(img_path)
     white_mask = imfill(white_mask, 'holes');
     white_mask = logical(white_mask);
 
-    % --- 6. Inicializar máscara global
+    
     global_mask = zeros(H, W);
 
-    % --- 7. Recorrer todas las clases
+    
     class_names = fieldnames(umbral_all);
     for c = 1:length(class_names)
         class = class_names{c};
@@ -72,7 +70,7 @@ function segmented_all = segment_all_classes(img_path)
         global_mask = global_mask | class_mask;
     end
 
-    % --- 8. Aplicar máscara combinada
+   
     segmented_all = img;
     for i = 1:3
         ch = segmented_all(:,:,i);
@@ -80,7 +78,7 @@ function segmented_all = segment_all_classes(img_path)
         segmented_all(:,:,i) = ch;
     end
 
-    % --- 9. Refinamiento final para eliminar residuos blancos
+
     hsv_final = rgb2hsv(segmented_all);
     residual_white = (hsv_final(:,:,3) > 0.82 & hsv_final(:,:,2) < 0.25);
     residual_white = imopen(residual_white, strel('disk', 1));
@@ -93,7 +91,7 @@ function segmented_all = segment_all_classes(img_path)
         segmented_all(:,:,i) = ch;
     end
 
-    % --- 10. Visualizar resultados
+   
     figure('Name','Segmentación de todas las clases');
     subplot(1,3,1); imshow(img); title('Imagen original + contornos');
     subplot(1,3,2); imshow(global_mask); title('Máscara combinada');

@@ -13,7 +13,7 @@ bgDir = fullfile(baseDir, 'background');
 bgImgs = dir(fullfile(bgDir, '*.png'));
 bgPixels = initialize_pixel_struct(channels);
 
-% === Cargar fondo con exclusión refinada de blanco
+
 for i = 1:length(bgImgs)
     img = enhance_contrast(im2double(imread(fullfile(bgDir, bgImgs(i).name))));
     hsv = rgb2hsv(img); lab = rgb2lab(img); ycbcr = rgb2ycbcr(img);
@@ -24,10 +24,8 @@ for i = 1:length(bgImgs)
     bgPixels = append_pixels(img, hsv, lab, ycbcr, mask, bgPixels);
 end
 
-% === Procesar cada clase
 for c = 1:length(classes)
     className = classes{c};
-    fprintf('\n?? Procesando clase: %s\n', upper(className));
     classDir = fullfile(baseDir, className);
     fruitImgs = dir(fullfile(classDir, '*.jpg'));
 
@@ -77,7 +75,7 @@ for c = 1:length(classes)
     end
 
     if isempty(metricas)
-        warning('? Clase "%s" no tiene canales válidos.', className);
+        warning('Clase "%s" no tiene canales válidos.', className);
         continue;
     end
 
@@ -109,14 +107,11 @@ for c = 1:length(classes)
 end
 
 save('thresholds_all_classes.mat', 'umbral_all', 'canales_all', 'pesos_all');
-fprintf('\n? Umbrales guardados correctamente.\n');
-
 end
 
-%% === Funciones auxiliares
+%% Funciones auxiliares
 
 function mask = refine_white_mask(hsv)
-    % Máscara blanca ajustada a imágenes pequeñas
     blurred = imgaussfilt(hsv(:,:,3), 0.7);
     mask = (blurred > 0.82 & hsv(:,:,2) < 0.23);
     mask = imopen(mask, strel('disk', 1));

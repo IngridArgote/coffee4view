@@ -1,8 +1,4 @@
 function fruit_count = project_ellipses_from_arcs(img_gray, arcs)
-% img_gray: imagen en escala de grises
-% arcs: salida de find_arcs_and_compute_angles
-% fruit_count: número de frutos proyectados como elipses válidas
-
 [H, W] = size(img_gray);
 imshow(img_gray); hold on; title('Projected ellipses from arcs');
 
@@ -59,7 +55,6 @@ for i = 1:length(arcs)
 end
 
 hold off;
-fprintf('\n? Estimated number of fruits (ellipses): %d\n', fruit_count);
 end
 
 function a = angle_to_a(alpha, b)

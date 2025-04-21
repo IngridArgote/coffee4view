@@ -15,10 +15,6 @@ for c = 1:length(classes)
     if isempty(imgs)
         imgs = dir(fullfile(classDir, '*.png'));
     end
-    if isempty(imgs)
-        warning('? Clase sin imágenes: %s', className);
-        continue;
-    end
 
     px = initialize_pixel_struct(channels);
 
@@ -59,7 +55,6 @@ end
 
 T = array2table(quartile_data, 'VariableNames', channels, 'RowNames', rowLabels);
 writetable(T, 'quartilsporclasse.csv', 'WriteRowNames', true);
-disp('? Tabla_quartilsporclasse.csv');
 
 end
 

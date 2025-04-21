@@ -5,7 +5,6 @@ bgDir = fullfile(baseDir, 'background');
 classes = {'verde', 'verdolengo', 'cereja', 'passa'};
 channels = {'R','G','B','H','S','V','L','a','b','Y','Cb','Cr'};
 
-% === Extraer fondo una vez ===
 bgImgs = dir(fullfile(bgDir, '*.png'));
 bg = initialize_pixel_struct(channels);
 
@@ -25,7 +24,6 @@ for i = 1:length(channels)
     Q3_background.(ch) = prctile(bg.(ch), 75);
 end
 
-% === Procesar cada clase ===
 dist_matrix = [];
 
 for c = 1:length(classes)
@@ -58,12 +56,9 @@ for c = 1:length(classes)
     dist_matrix = [dist_matrix; row];
 end
 
-% === Crear tabla ===
 T = array2table(dist_matrix, 'VariableNames', channels, ...
     'RowNames', upper(classes));
 writetable(T, 'distancias_por_classe.csv', 'WriteRowNames', true);
-fprintf('? Tabla_distancias_por_classe.csv\n');
-
 end
 
 function out = initialize_pixel_struct(channels)
