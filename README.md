@@ -8,7 +8,7 @@ ID: 9330
 
 Ingrid Lorena Argote Pedrazza
 Medellin Education Department - Medelin – Colombia
- e-mail:ingridloargote@iesanantoniodeprado.edu.co
+e-mail:ingridloargote@iesanantoniodeprado.edu.co
 
 Emerson Carlos Pedrino
 Computer Science Department - Federal University of São Carlos - São Carlos - SP – Brazil
