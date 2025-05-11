@@ -5,6 +5,7 @@ Coffee4View is a MATLAB-based image analysis pipeline for detecting, classifying
 IEEE Latin America Transactions
 
 ID: 9330
+
 Ingrid Lorena Argote Pedrazza
 Medellin Education Department - Medelin – Colombia
  e-mail:ingridloargote@iesanantoniodeprado.edu.co
