@@ -2,6 +2,25 @@
 
 Coffee4View is a MATLAB-based image analysis pipeline for detecting, classifying, and counting coffee fruits by maturity stage. It is designed for small-scale image acquisition environments (e.g., 50×50 px images captured in field conditions) and follows a multi-stage algorithm inspired by recent research in agricultural computer vision.
 
+IEEE Latin America Transactions
+
+ID: 9330
+Ingrid Lorena Argote Pedrazza
+Medellin Education Department - Medelin – Colombia
+ e-mail:ingridloargote@iesanantoniodeprado.edu.co
+
+Emerson Carlos Pedrino
+Computer Science Department - Federal University of São Carlos - São Carlos - SP – Brazil
+e-mail:emerson@ufscar.br
+
+Carlos Roberto Valêncio
+Computer Science and Statistic Department- São Paulo State University – S. J. Rio Preto - SP - Brazil 
+e-mail:carlos.valencio@unesp.br
+
+Mário Luiz Tronco
+Mechanical Engineering Department - São Paulo University - São Carlos - SP –Brazil
+e-mail:mltronco@sc.usp.br
+
 ---
 
 ## 📂 Project Structure
