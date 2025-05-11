@@ -7,19 +7,19 @@ IEEE Latin America Transactions
 ID: 9330
 
 Ingrid Lorena Argote Pedrazza
-Medellin Education Department - Medelin – Colombia
+Medellin Education Department - Medelin – Colombia 
 e-mail:ingridloargote@iesanantoniodeprado.edu.co
 
 Emerson Carlos Pedrino
-Computer Science Department - Federal University of São Carlos - São Carlos - SP – Brazil
+Computer Science Department - Federal University of São Carlos - São Carlos - SP – Brazil 
 e-mail:emerson@ufscar.br
 
 Carlos Roberto Valêncio
-Computer Science and Statistic Department- São Paulo State University – S. J. Rio Preto - SP - Brazil 
+Computer Science and Statistic Department- São Paulo State University – S. J. Rio Preto - SP - Brazil  
 e-mail:carlos.valencio@unesp.br
 
 Mário Luiz Tronco
-Mechanical Engineering Department - São Paulo University - São Carlos - SP –Brazil
+Mechanical Engineering Department - São Paulo University - São Carlos - SP –Brazil 
 e-mail:mltronco@sc.usp.br
 
 ---
